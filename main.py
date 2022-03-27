@@ -8,8 +8,6 @@ location = "55.85610208036833,-4.259438641204655"
 radius = "50000" #in meters
 
 
-
-
 url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&keyword={search_query}&type=establishment&key={API_KEY}"
 
 payload = {}
@@ -28,7 +26,7 @@ refined_business_list = []
 for result in results:
 
     if result['business_status'] != "OPERATIONAL":
-        pass
+        continue
     relevant_data = {
         "business_status": result['business_status'],
         "name": result['name'],
